@@ -140,13 +140,13 @@ begin
 
     product8x8_out <= product8x8;
 
-    seg_a <= segs(7);
-    seg_b <= segs(6);
-    seg_c <= segs(5);
-    seg_d <= segs(4);
-    seg_e <= segs(3);
-    seg_f <= segs(2);
-    seg_g <= segs(1);
+    seg_a <= segs(0);
+    seg_b <= segs(1);
+    seg_c <= segs(2);
+    seg_d <= segs(3);
+    seg_e <= segs(4);
+    seg_f <= segs(5);
+    seg_g <= segs(6);
     seven_segment_cntrl : entity work.seven_segment_cntrl
         port map(
             input => longer_state_out,
