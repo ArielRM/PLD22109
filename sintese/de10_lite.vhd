@@ -61,10 +61,17 @@ end entity;
 architecture rtl of de10_lite is
     signal product8x8_out : unsigned(15 downto 0);
 
-    signal produto : std_logic_vector(15 downto 0); -- para facilitar a comunicação com o controlador de 7-seg
+    signal produto : std_logic_vector(15 downto 0); -- para facilitar a comunicaï¿½ï¿½o com o controlador de 7-seg
     signal dataa   : unsigned(7 downto 0);
     signal datab   : unsigned(7 downto 0);
-
+    signal probe   : std_logic_vector(15 downto 0);
+    signal source  : std_logic_vector(15 downto 0);
+    component unnamed is
+        port(
+            source : out std_logic_vector(15 downto 0); -- source
+            probe  : in  std_logic_vector(15 downto 0) := (others => 'X') -- probe
+        );
+    end component unnamed;
 begin
     produto <= std_logic_vector(product8x8_out);
 
@@ -115,5 +122,16 @@ begin
             dp    => '0',
             segs  => HEX2
         );
+    ip : component unnamed
+        port map(
+            probe  => probe,
+            source => source
+        );
+
+    dataa <= unsigned(source(15 downto 8));
+    datab <= unsigned(source(7 downto 0));
+
+    probe <= produto;
+
 end;
 

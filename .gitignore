@@ -4,3 +4,7 @@
 *.ini
 *.wlf
 *.ps
+sintese/db
+sintese/incremental_db
+sintese/output_files/
+sintese/simulation/

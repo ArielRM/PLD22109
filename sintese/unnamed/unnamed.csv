@@ -1,0 +1,18 @@
+# system info unnamed on 2023.03.20.19:59:00
+system_info:
+name,value
+DEVICE,10M50DAF484C7G
+DEVICE_FAMILY,MAX 10
+GENERATION_ID,1679353139
+#
+#
+# Files generated for unnamed on 2023.03.20.19:59:00
+files:
+filepath,kind,attributes,module,is_top
+simulation/unnamed.vhd,VHDL,,unnamed,true
+simulation/submodules/altsource_probe.vhd,VHDL,,altsource_probe,false
+#
+# Map from instance-path to kind of module
+instances:
+instancePath,module
+unnamed.in_system_sources_probes_0,altsource_probe
