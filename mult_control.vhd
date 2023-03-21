@@ -4,7 +4,8 @@
 --  created     :   14 de mar. de 2023
 --  version     :   0.1
 --  copyright   :   -
---  description :   brief
+--  description :   FSM que descreve o funcionamento do bloco de controle do
+--                  Multiplicador 8x8 (mult_8x8.vhd)
 --  -----------------------------------------------------------------------
 
 library ieee;
@@ -14,7 +15,7 @@ use ieee.numeric_std.all;
 entity mult_control is
     port(
         clk       : in  std_logic;
-        reset_a     : in  std_logic;
+        reset_a   : in  std_logic;
         start     : in  std_logic;
         count     : in  unsigned(1 downto 0);
         --
@@ -32,6 +33,8 @@ architecture RTL of mult_control is
     type state_type is (IDLE, LSB, MID, MSB, CALC_DONE, ERR);
     signal state : state_type := IDLE;
 begin
+    
+    -- Lógica de próximo estado
     process(reset_a, clk)
     begin
         if reset_a = '1' then
@@ -69,18 +72,23 @@ begin
                         state <= ERR;
                     end if;
                 when ERR =>
-                    if start = '0' then
+                    if start = '1' then
                         state <= LSB;
+                    else
+                        state <= ERR;
                     end if;
             end case;
         end if;
     end process;
 
+
+    -- stat_out é Moore
     process(state) is
     begin
+        state_out <= "000";
         case state is
             when IDLE =>
-                state_out <= "000";
+                null;
             when LSB =>
                 state_out <= "001";
             when MID =>
@@ -94,19 +102,20 @@ begin
         end case;
     end process;
 
+    -- As outras saídas são Mealy
     process(start, count, state) is
     begin
+        input_sel <= "00";
+        shift_sel <= "00";
+        done      <= '0';
+        clk_ena   <= '0';
+        sclr_n    <= '1';
+        
         case state is
             when IDLE =>
-                if start = '0' then
-                    input_sel <= "XX";
-                    shift_sel <= "XX";
-                    done      <= '0';
-                    clk_ena   <= '0';
-                    sclr_n    <= '1';
-                else
-                    input_sel <= "XX";
-                    shift_sel <= "XX";
+                if start = '1' then
+--                    input_sel <= "XX";
+--                    shift_sel <= "XX";
                     done      <= '0';
                     clk_ena   <= '1';
                     sclr_n    <= '0';
@@ -119,8 +128,8 @@ begin
                     clk_ena   <= '1';
                     sclr_n    <= '1';
                 else
-                    input_sel <= "XX";
-                    shift_sel <= "XX";
+--                    input_sel <= "XX";
+--                    shift_sel <= "XX";
                     done      <= '0';
                     clk_ena   <= '0';
                     sclr_n    <= '1';
@@ -139,8 +148,8 @@ begin
                     clk_ena   <= '1';
                     sclr_n    <= '1';
                 else
-                    input_sel <= "XX";
-                    shift_sel <= "XX";
+--                    input_sel <= "XX";
+--                    shift_sel <= "XX";
                     done      <= '0';
                     clk_ena   <= '0';
                     sclr_n    <= '1';
@@ -153,8 +162,8 @@ begin
                     clk_ena   <= '1';
                     sclr_n    <= '1';
                 else
-                    input_sel <= "XX";
-                    shift_sel <= "XX";
+--                    input_sel <= "XX";
+--                    shift_sel <= "XX";
                     done      <= '0';
                     clk_ena   <= '0';
                     sclr_n    <= '1';
