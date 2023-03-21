@@ -5,7 +5,7 @@
  intended_family="MAX 10"
  specifies="all_ports">
  <global>
-  <pin name="source[15..0]" direction="output" scope="external" />
+  <pin name="source[16..0]" direction="output" scope="external" />
   <pin name="probe[15..0]" direction="input" scope="external" />
  </global>
 </pinplan>

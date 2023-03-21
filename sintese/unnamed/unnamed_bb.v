@@ -1,8 +1,8 @@
 
 module unnamed (
-	source,
-	probe);	
+	probe,
+	source);	
 
-	output	[15:0]	source;
 	input	[15:0]	probe;
+	output	[16:0]	source;
 endmodule

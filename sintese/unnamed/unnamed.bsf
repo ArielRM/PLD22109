@@ -34,8 +34,8 @@ https://fpgasoftware.intel.com/eula.
 	(port
 		(pt 0 112)
 		(output)
-		(text "source[15..0]" (rect 0 0 50 12)(font "Arial" (font_size 8)))
-		(text "source[15..0]" (rect 4 101 82 112)(font "Arial" (font_size 8)))
+		(text "source[16..0]" (rect 0 0 50 12)(font "Arial" (font_size 8)))
+		(text "source[16..0]" (rect 4 101 82 112)(font "Arial" (font_size 8)))
 		(line (pt 0 112)(pt 80 112)(line_width 3))
 	)
 	(drawing

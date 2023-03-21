@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="unnamed" kind="system" version="22.1" fabric="QSYS">
  <!-- Format version 22.1 915 (Future versions may contain additional information.) -->
- <!-- 2023.03.20.19:59:11 -->
+ <!-- 2023.03.21.19:13:06 -->
  <!-- A collection of modules and connections -->
  <parameter name="clockCrossingAdapter">
   <type>com.altera.sopcmodel.ensemble.EClockAdapter</type>
@@ -53,7 +53,7 @@
  </parameter>
  <parameter name="generationId">
   <type>int</type>
-  <value>1679353150</value>
+  <value>1679436783</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>true</visible>
@@ -101,7 +101,7 @@
  </parameter>
  <parameter name="projectName">
   <type>java.lang.String</type>
-  <value></value>
+  <value>de10_lite.qpf</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -217,7 +217,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="source_width">
    <type>int</type>
-   <value>16</value>
+   <value>17</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -312,7 +312,7 @@ parameters are a RESULT of the module parameters. -->
    <port>
     <name>source</name>
     <direction>Output</direction>
-    <width>16</width>
+    <width>17</width>
     <role>source</role>
    </port>
   </interface>
@@ -379,5 +379,5 @@ parameters are a RESULT of the module parameters. -->
   <version>22.1</version>
  </plugin>
  <reportVersion>22.1 915</reportVersion>
- <uniqueIdentifier>1AB1DBCD5C0700000187013F7ECD</uniqueIdentifier>
+ <uniqueIdentifier>1AB1DBCD5C0700000187063BA7F3</uniqueIdentifier>
 </EnsembleReport>

@@ -9,7 +9,7 @@ use IEEE.numeric_std.all;
 entity unnamed is
 	port (
 		probe  : in  std_logic_vector(15 downto 0) := (others => '0'); --  probes.probe
-		source : out std_logic_vector(15 downto 0)                     -- sources.source
+		source : out std_logic_vector(16 downto 0)                     -- sources.source
 	);
 end entity unnamed;
 
@@ -25,7 +25,7 @@ architecture rtl of unnamed is
 			enable_metastability    : string  := "NO"
 		);
 		port (
-			source     : out std_logic_vector(15 downto 0);                    -- source
+			source     : out std_logic_vector(16 downto 0);                    -- source
 			probe      : in  std_logic_vector(15 downto 0) := (others => 'X'); -- probe
 			source_ena : in  std_logic                     := 'X'              -- source_ena
 		);
@@ -39,7 +39,7 @@ begin
 			sld_instance_index      => 0,
 			instance_id             => "NONE",
 			probe_width             => 16,
-			source_width            => 16,
+			source_width            => 17,
 			source_initial_value    => "0",
 			enable_metastability    => "NO"
 		)
