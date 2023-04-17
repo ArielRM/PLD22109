@@ -1,0 +1,28 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\Users\ariel\workspaceSigasi\PLD22109\FSM\sintese\src_and_probes.qsys --block-symbol-file --output-directory=C:\Users\ariel\workspaceSigasi\PLD22109\FSM\sintese\src_and_probes --family="MAX 10" --part=10M50DAF484C7G
+Progress: Loading sintese/src_and_probes.qsys
+Progress: Reading input file
+Progress: Adding in_system_sources_probes_0 [altera_in_system_sources_probes 22.1]
+Progress: Parameterizing module in_system_sources_probes_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\Users\ariel\workspaceSigasi\PLD22109\FSM\sintese\src_and_probes.qsys --synthesis=VHDL --output-directory=C:\Users\ariel\workspaceSigasi\PLD22109\FSM\sintese\src_and_probes\synthesis --family="MAX 10" --part=10M50DAF484C7G
+Progress: Loading sintese/src_and_probes.qsys
+Progress: Reading input file
+Progress: Adding in_system_sources_probes_0 [altera_in_system_sources_probes 22.1]
+Progress: Parameterizing module in_system_sources_probes_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: src_and_probes: Generating src_and_probes "src_and_probes" for QUARTUS_SYNTH
+Info: in_system_sources_probes_0: "src_and_probes" instantiated altera_in_system_sources_probes "in_system_sources_probes_0"
+Info: src_and_probes: Done "src_and_probes" with 2 modules, 2 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

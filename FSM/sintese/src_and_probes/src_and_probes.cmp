@@ -1,0 +1,7 @@
+	component src_and_probes is
+		port (
+			probe  : in  std_logic_vector(2 downto 0) := (others => 'X'); -- probe
+			source : out std_logic_vector(3 downto 0)                     -- source
+		);
+	end component src_and_probes;
+
