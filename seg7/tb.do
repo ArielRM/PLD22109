@@ -10,25 +10,25 @@
 #Cria biblioteca do projeto
 vlib work
 
-#compila projeto: todos os aquivo. Ordem Ã© importante
+#compila projeto: todos os aquivo. Ordem é importante
 vcom seg7.vhd testbench.vhd
 
-#Simula (work Ã© o diretorio, testbench Ã© o nome da entity)
+#Simula (work é o diretorio, testbench é o nome da entity)
 vsim -voptargs="+acc" -t ns work.testebench
 
 #Mosta forma de onda
 view wave
 
-#Adiciona ondas especÃ­ficas
+#Adiciona ondas específicas
 # -radix: binary, hex, dec
 # -label: nome da forma de onda
-add wave -radix hex  /data
-#Como mostrar sinais internos do processo
-add wave -radix hex /p0/a
+add wave -radix binary  /clock
+add wave -radix hex /value
+add wave -radix binary /HEX0
+add wave -radix binary /HEX1
 
-
-#Simula atÃ© um 500ns
-run 40ns
+#Simula até 512ns
+run 512ns
 
 wave zoomfull
 write wave wave.ps

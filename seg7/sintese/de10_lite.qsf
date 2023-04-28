@@ -352,6 +352,7 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ARDUINO_IO[13]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ARDUINO_IO[14]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ARDUINO_IO[15]
 set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to ARDUINO_RESET_N
+set_global_assignment -name QSYS_FILE unnamed.qsys
 set_global_assignment -name VHDL_FILE ../seg7.vhd
 set_global_assignment -name SDC_FILE de10_lite.sdc
 set_global_assignment -name VHDL_FILE de10_lite.vhd
