@@ -1,0 +1,45 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity filtro is
+    port(
+        clk      : in  std_logic;
+        rst      : in  std_logic;
+        data_in  : in  signed(23 downto 0);
+        --
+        data_out : out signed(47 downto 0)
+    );
+end entity filtro;
+
+architecture RTL of filtro is
+    type inputs_t is array (0 to 15) of signed(23 downto 0);
+
+    constant COEFF : inputs_t := (others => x"000001");
+
+begin
+    process(clk, rst) is
+        variable i      : unsigned(3 downto 0) := (others => '0');
+        variable inputs : inputs_t;
+        variable soma   : signed(47 downto 0);
+    begin
+        if rst = '1' then
+            i    := (others => '0');
+            soma := (others => '0');
+            for i in inputs_t'range loop
+                inputs(i) := (others => '0');
+            end loop;
+        elsif rising_edge(clk) then
+            soma                  := soma - inputs(to_integer(i)) + data_in * COEFF(to_integer(i));
+            inputs(to_integer(i)) := data_in;
+            i                     := i + 1;
+        end if;
+
+        data_out(43 downto 0) <= soma(47 downto 4);
+        if soma(47) = '0' then
+            data_out(47 downto 44) <= "0000";
+        else
+            data_out(47 downto 44) <= "1111";
+        end if;
+    end process;
+end architecture RTL;
