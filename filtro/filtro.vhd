@@ -13,25 +13,26 @@ entity filtro is
 end entity filtro;
 
 architecture RTL of filtro is
-    type inputs_t is array (0 to 15) of signed(23 downto 0);
+    type registradores is array (0 to 15) of signed(47 downto 0);
+    type coeficientes is array (0 to 15) of signed(23 downto 0);
 
-    constant COEFF : inputs_t := (others => x"000001");
+    constant COEFF : coeficientes := (others => x"000001");
 
 begin
-    process(clk, rst) is
+    p0 : process(clk, rst) is
         variable i      : unsigned(3 downto 0) := (others => '0');
-        variable inputs : inputs_t;
+        variable inputs : registradores;
         variable soma   : signed(47 downto 0);
     begin
         if rst = '1' then
             i    := (others => '0');
             soma := (others => '0');
-            for i in inputs_t'range loop
+            for i in inputs'range loop
                 inputs(i) := (others => '0');
             end loop;
         elsif rising_edge(clk) then
             soma                  := soma - inputs(to_integer(i)) + data_in * COEFF(to_integer(i));
-            inputs(to_integer(i)) := data_in;
+            inputs(to_integer(i)) := data_in * COEFF(to_integer(i));
             i                     := i + 1;
         end if;
 

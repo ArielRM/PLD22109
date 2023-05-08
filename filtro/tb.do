@@ -24,22 +24,21 @@ view wave
 
 add wave -label clk -radix binary /clk
 add wave -label rst -radix binary /rst
-add wave -label fsr -radix binary /fsr
-add wave -label msr -radix binary /msr
-add wave -label clr -radix binary /clr
-add wave -label fm -radix binary /fm
-add wave -label mm -radix binary /mm
+add wave -label input -radix dec /data_in
+add wave -label output -radix dec /data_out
 
-add wave -label state -radix hex /fsm/state
+add wave -height 15 -divider "Sinais internos"
+add wave -label acc -radix dec /filt/p0/soma
+add wave -label regs -radix dec /filt/p0/inputs
+add wave -label count -radix unsigned /filt/p0/i
 
 #Como mostrar sinais internos do processo
 #add wave -radix dec /dut_5/p0/count
 #add wave -radix dec /dut_10/p0/count
 
 
-#Simula atï¿½ um 50ns
-#run 786431ns
-run 80 ns
+#Simula até 50ns
+run 100 ns
 
 wave zoomfull
 write wave wave.ps
