@@ -1,3 +1,13 @@
+--  -----------------------------------------------------------------------
+--  name        :   testbench.vhd
+--  author      :   Ariel Rigueiras Montardo
+--  created     :   17 de abr. de 2023
+--  version     :   0.1
+--  copyright   :   -
+--  description :   Testbench para o filtro (filtro.vhd)
+--  -----------------------------------------------------------------------
+
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

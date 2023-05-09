@@ -1,3 +1,13 @@
+--  ----------------------------------------------------------------------------
+--  name        :   filtro.vhd
+--  author      :   Ariel Rigueiras Montardo
+--  created     :   9 de maio de 2023
+--  version     :   0.1
+--  copyright   :   -
+--  description :   Uma "filtro" media móvel com o objetivo de mostrar o uso de
+--                  vetores.
+--  ----------------------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -24,7 +34,7 @@ begin
         variable inputs : registradores;
         variable soma   : signed(47 downto 0);
     begin
-        if rst = '1' then
+        if rst = '1' then               -- Reset
             i    := (others => '0');
             soma := (others => '0');
             for i in inputs'range loop
@@ -37,9 +47,9 @@ begin
         end if;
 
         data_out(43 downto 0) <= soma(47 downto 4);
-        if soma(47) = '0' then
+        if soma(47) = '0' then          -- Se a soma é positiva, estende com zeros
             data_out(47 downto 44) <= "0000";
-        else
+        else                            -- Se a soma é negativa, estende com ums
             data_out(47 downto 44) <= "1111";
         end if;
     end process;
